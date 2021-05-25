@@ -1,11 +1,11 @@
+import Expenses from './components/Expenses'
+
 function App() {
+  
   return (
     <div>
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
+      <h2>Expense Tracker</h2>
+      <Expenses />
     </div>
   );
 }

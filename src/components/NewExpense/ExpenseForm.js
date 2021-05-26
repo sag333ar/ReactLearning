@@ -41,6 +41,8 @@ const ExpenseForm = ({onSave}) => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(userInput);
+    if (userInput.title.length === 0) return;
+    if (userInput.amount === 0.0) return;
     onSave(userInput);
     setUserInput({
       title: "",

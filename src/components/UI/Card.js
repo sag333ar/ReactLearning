@@ -1,8 +1,8 @@
 import './Card.css'
+import classNames from 'classnames';
 
 const Card = ({ children, className }) => {
-  const classes = "card " + className;
-  return <div className={classes}>{children}</div>;
+  return <div className={classNames('card', className)}>{children}</div>;
 };
 
 export default Card;

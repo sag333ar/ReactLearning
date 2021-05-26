@@ -27,14 +27,7 @@ const App = () => {
 
   const [expenses, setExpenses] = useState(staticValues);
 
-  const onSaveHandler = (newExp) => {
-    setExpenses((prev) => {
-      return [
-        newExp,
-        ...prev,
-      ]
-    });
-  }
+  const onSaveHandler = (newExp) => setExpenses((prev) => ([newExp,...prev]));
 
   return (
     <div>

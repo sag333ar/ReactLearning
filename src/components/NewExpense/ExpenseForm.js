@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = ({onSave}) => {
   const [userInput, setUserInput] = useState({
     title: "",
     amount: 0.0,
@@ -19,10 +19,11 @@ const ExpenseForm = () => {
   };
 
   const amountChangeHandler = (e) => {
+    const value = parseFloat(e.target.value)
     setUserInput((prev) => {
       return {
         ...prev,
-        amount: parseFloat(e.target.value),
+        amount: Number.isNaN(value) ? 0.0 : value,
       };
     });
   };
@@ -39,10 +40,17 @@ const ExpenseForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log(userInput);
+    onSave(userInput);
+    setUserInput({
+      title: "",
+      amount: 0.0,
+      date: new Date(Date.now()),
+    });
   };
 
   return (
-    <form onSubmit={submitHandler }>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label htmlFor="Title">Title</label>
@@ -54,7 +62,7 @@ const ExpenseForm = () => {
             type="number"
             min="0.05"
             step="0.05"
-            value={userInput.amount}
+            value={userInput.amount === 0.0 ? "" : userInput.amount}
             onChange={amountChangeHandler}
           />
         </div>

@@ -1,8 +1,9 @@
+import React, { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
-  const expenses = [
+  const staticValues = [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -24,9 +25,20 @@ const App = () => {
     },
   ];
 
+  const [expenses, setExpenses] = useState(staticValues);
+
+  const onSaveHandler = (newExp) => {
+    setExpenses((prev) => {
+      return [
+        newExp,
+        ...prev,
+      ]
+    });
+  }
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense onSave={onSaveHandler} />
       <Expenses expenses={expenses} />
     </div>
   );

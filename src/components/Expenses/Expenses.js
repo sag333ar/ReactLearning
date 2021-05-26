@@ -12,15 +12,15 @@ const Expenses = ({ expenses }) => {
 
   return (
     <Card className="expenses">
-      <ExpenseFilter onUpdate={filterUpdateHandler} />
+      <ExpenseFilter year={year} onUpdate={filterUpdateHandler} />
       {expenses
-        .filter((e) => e.date.getFullYear().toString() === year)
-        .map((e, i) => (
+        .filter((expense) => expense.date.getFullYear().toString() === year)
+        .map((expense) => (
           <ExpenseItem
-            date={e.date}
-            key={i}
-            amount={e.amount}
-            title={e.title}
+            date={expense.date}
+            key={expense.id}
+            amount={expense.amount}
+            title={expense.title}
           />
         ))}
     </Card>

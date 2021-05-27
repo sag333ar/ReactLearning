@@ -49,6 +49,7 @@ const ExpenseForm = ({onSave, onCancel}) => {
       amount: 0.0,
       date: new Date(Date.now()),
     });
+    onCancel();
   };
 
   return (

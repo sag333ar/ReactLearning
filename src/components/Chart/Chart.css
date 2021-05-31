@@ -1,0 +1,6 @@
+.chart {
+  display: flex;
+  height: 200px;
+  border: 1px solid gray;
+  border-radius: 20px;
+}

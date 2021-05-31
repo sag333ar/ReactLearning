@@ -1,0 +1,20 @@
+.chart-bar {
+  flex: 1;
+  flex-direction: column;
+  height: 70%;
+  width: 5px;
+  color: white;
+  margin: 10px;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+.chart-bar .inner {
+  width: 50%;
+  height: 100%;
+  margin: auto;
+  background-color: white;
+  vertical-align: bottom;
+  border-radius: 10px;
+  transition: all 0.3s ease-in;
+}

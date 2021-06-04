@@ -1,40 +1,32 @@
 import React, { useState } from "react";
 
-import Menu from "./components/Menu/Menu";
-import Accounts from "./components/Sections/Accounts/Accounts";
-import Categories from "./components/Sections/Categories/Categories";
-import Expenses from "./components/Sections/Expenses/Expenses";
-import Locations from "./components/Sections/Locations/Locations";
-import Wallets from "./components/Sections/Wallets/Wallets";
+import Menu from "./components/UI/Menu/Menu";
+import Entity from './components/UI/Entity/Entity';
+
+import Data from "./Data/Data";
+import Expenses from "./components/UI/Expenses/Expenses";
 
 function App() {
-  const items = ["Expenses", "Accounts", "Wallets", "Categories", "Locations"];
-  const [selectedItem, setSelectedItem] = useState(0);
+  const [selectedMenuItem, setSelectedMenuItem] = useState(0);
+
   const onChange = (item) => {
-    setSelectedItem(item);
+    setSelectedMenuItem(item);
   };
 
-  const currentPage = () => {
-    switch (selectedItem) {
-      case 0:
-        return <Expenses />;
-      case 1:
-        return <Accounts />;
-      case 2:
-        return <Wallets />;
-      case 3:
-        return <Categories />;
-      case 4:
-        return <Locations />;
-      default:
-        return <Expenses />;
-    }
-  };
+  const currentPage = (
+    <div>
+      <Expenses items={Data.transactions} headers={Data.transactionHeaders} hidden={selectedMenuItem !== 0} />
+      <Entity items={Data.accounts} headers={Data.entityHeaders} hidden={selectedMenuItem !== 1} />
+      <Entity items={Data.wallets} headers={Data.entityHeaders} hidden={selectedMenuItem !== 2} />
+      <Entity items={Data.categories} headers={Data.entityHeaders} hidden={selectedMenuItem !== 3} />
+      <Entity items={Data.location} headers={Data.entityHeaders} hidden={selectedMenuItem !== 4} />
+    </div>
+  );
 
   return (
     <div>
-      <Menu items={items} selected={selectedItem} onChange={onChange} />
-      {currentPage()}
+      <Menu items={Data.menuItems} selected={selectedMenuItem} onChange={onChange} />
+      {currentPage}
     </div>
   );
 }

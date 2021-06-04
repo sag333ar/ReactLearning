@@ -1,0 +1,30 @@
+.table {
+  width: 100%;
+  border-style: none;
+  border-collapse: collapse;
+}
+
+.row {
+  font-size: 2rem;
+  padding: 0.75rem;
+  background-color: khaki;
+}
+
+.row:hover {
+  background-color: darkkhaki;
+}
+
+.index {
+  font-weight: bold;
+  text-align: right;
+}
+
+.title {
+  padding: 0px 0px 0px 20px;
+  text-align: left;
+}
+
+.icon {
+  padding: 0px 20px 0px 0px;
+  text-align: right;
+}

@@ -1,0 +1,12 @@
+.table {
+  width: 100%;
+  border-style: none;
+  border-collapse: collapse;
+}
+
+.entity {
+  width: 100%;
+  background-color: black;
+  margin-bottom: 60px;
+  margin-top: 2.85rem;
+}

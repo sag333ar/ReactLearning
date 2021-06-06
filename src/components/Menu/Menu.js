@@ -3,10 +3,9 @@ import MenuItem from './MenuItem'
 
 import cssClasses from "./Menu.module.css";
 
-const Menu = ({ items, selected, onChange }) => {
-  const liClicked = (e) => {
-    const index = items.indexOf(e.target.innerText);
-    onChange(index);
+const Menu = ({ icons, items, selected, onChange }) => {
+  const liClicked = (text) => {
+    onChange(items.indexOf(text));
   };
 
   return (
@@ -17,6 +16,7 @@ const Menu = ({ items, selected, onChange }) => {
           <MenuItem
             isSelected={index === selected}
             onClick={liClicked}
+            icon={icons[index]}
             text={item}
             key={item}
           />

@@ -1,5 +1,6 @@
 const Data = {
   menuItems: ["Expenses", "Accounts", "Wallets", "Categories", "Locations"],
+  menuIcons: ["🧾", "🏠", "💳", "🛍", "📍"],
   entityHeaders: ["#", "Name", "Icon"],
   accounts: [
     { name: "Personal", icon: "🏡", id: 1 },
